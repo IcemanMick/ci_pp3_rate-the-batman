@@ -47,7 +47,27 @@ def get_batman_rating():
     print("The first section is on acting performances...\n")
 
     batman = input("Please rate Robert Pattinson's (Batman) performance?: ")
-    print(f"Your rating is {batman}")
+
+    batman_rating = int(batman)
+    validate_rating(batman_rating)
+
+
+def validate_rating(values):
+    """
+    Inside try, makes sure that only an integer between 0 to 10 can be entered.
+    Raises ValueError if strings or an integer greater than 10 is entered.
+    """
+    try:
+        if values > 10:
+            raise ValueError(
+                f"10 is the highest rating, you entered {values}"
+            )
+        elif values < 1:
+            raise ValueError(
+                f"1 is the lowest rating, you entered {values}"
+            )
+    except ValueError as e:
+        print(f"Invalid rating: {e}. please try again.\n")
 
 
 get_batman_rating()
