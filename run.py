@@ -40,16 +40,23 @@ def get_batman_rating():
     """
     Get rating of Robert Pattinson's performance as Batman from user.
     """
-    print("There will be 10 questions in this survey.")
-    print("Please answer each question with a rating between 1 to 10.")
-    print("1 being the lowest score and 10 being the highest score.\n")
+    while True:
+        print("There will be 10 questions in this survey.")
+        print("Please answer each question with a rating between 1 to 10.")
+        print("1 being the lowest score and 10 being the highest score.\n")
 
-    print("The first section is on acting performances...\n")
+        print("The first section is on acting performances...\n")
 
-    batman = input("Please rate Robert Pattinson's (Batman) performance?: ")
+        batman = input("Please rate Robert Pattinson as Batman?: ")
 
-    batman_rating = int(batman)
-    validate_rating(batman_rating)
+        batman_rating = int(batman)
+        validate_rating(batman_rating)
+
+        if validate_rating(batman_rating):
+            print("Data is valid!")
+            break
+
+    return batman_rating
 
 
 def validate_rating(values):
@@ -67,7 +74,10 @@ def validate_rating(values):
                 f"1 is the lowest rating, you entered {values}"
             )
     except ValueError as e:
-        print(f"Invalid rating: {e}. please try again.\n")
+        print(f"Invalid rating: {e}. Please try again.\n")
+        return False
+
+    return True
 
 
-get_batman_rating()
+data = get_batman_rating()
