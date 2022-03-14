@@ -40,13 +40,14 @@ def get_batman_rating():
     """
     Get rating of Robert Pattinson's performance as Batman from user.
     """
+
+    print("There will be 10 questions in this survey.")
+    print("Please answer each question with a rating between 1 to 10.")
+    print("1 being the lowest score and 10 being the highest score.\n")
+
+    print("The first section is on acting performances...\n")
+
     while True:
-        print("There will be 10 questions in this survey.")
-        print("Please answer each question with a rating between 1 to 10.")
-        print("1 being the lowest score and 10 being the highest score.\n")
-
-        print("The first section is on acting performances...\n")
-
         batman = input("Please rate Robert Pattinson as Batman?: ")
 
         batman_rating = int(batman)
