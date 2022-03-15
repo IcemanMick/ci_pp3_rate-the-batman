@@ -13,45 +13,19 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('rate_the_batman')
 
 
-def get_batman_sales_data():
+def get_sales_data():
     """
-    Get rating of Robert Pattinson's performance as Batman from user.
+    Get ratings of main characters from the user
     """
 
-    print("There will be x questions in this survey.\n")
     print("Please answer each question with a rating between 1 to 10.")
     print("1 being the lowest score and 10 being the highest score.\n")
-    while True:
-        batman_data_str = input("Please rate Robert Pattinson as Batman?: ")
+    print("Ratings should be 3 numbers for A, B, & C, separated by commas")
+    print("Example: 10,9,7\n")
+    print("Please rate A) Batman B) Catwoman C) The Riddler\n")
 
-        batman_sales_data = int(batman_data_str)
-
-        if validate_data(batman_sales_data):
-            print("Data is valid!")
-            break
-
-    return batman_sales_data
+    data_str = input("Enter your three ratings here: ")
+    print(f"The ratings provided are {data_str}")
 
 
-def validate_data(values):
-    """
-    Inside try, makes sure that only an integer between 0 to 10 can be entered.
-    Raises ValueError if strings or an integer greater than 10 is entered.
-    """
-    try:
-        if values > 10:
-            raise ValueError(
-               f"10 is the highest rating, you entered {values}."
-            )
-        elif values < 1:
-            raise ValueError(
-                f"1 is the lowest rating, you entered {values}."
-            )
-    except ValueError as e:
-        print(f"Invalid rating. {e} Please try again...\n")
-        return False
-
-    return True
-
-
-data = get_batman_sales_data()
+get_sales_data()
