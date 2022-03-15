@@ -66,6 +66,32 @@ def update_sales_worksheet(data):
     print("sales worksheet updated successfully.\n")
 
 
+def update_supporting_worksheet(data):
+    """
+    update supporting characters worksheet and add new row of ratings
+    """
+    print("updating supporting worksheet...\n")
+    supporting_worksheet = SHEET.worksheet("supporting")
+    supporting_worksheet.append_row(data)
+    print("supporting worksheet updated successfully.\n")
+
+
+def get_supporting_data():
+    """
+    rating supporting characters
+    """
+    while True:
+        data_str = input("Rate: A)Alfred,B)Penguin,C)Jim Gordon, here: ")
+
+        supporting_data = data_str.split(",")
+
+        if validate_data(supporting_data):
+            print("Ratings are valid!")
+            break
+
+    return supporting_data
+
+
 def main():
     """
     Run all functions for the survey
@@ -73,7 +99,10 @@ def main():
     data = get_sales_data()
     sales_data = [int(num) for num in data]
     update_sales_worksheet(sales_data)
+    data = get_supporting_data()
+    supporting_data = [int(num) for num in data]
+    update_supporting_worksheet(supporting_data)
 
 
-print("Welcome to Rate The Batman")
+print("Welcome to Rate The Batman!\n")
 main()
