@@ -35,6 +35,7 @@ def validate_data(values):
     Inside try converts all strings to integers.
     """
     try:
+        [int(value) for value in values]
         if len(values) != 3:
             raise ValueError(
                 f"3 ratings should be entered, you gave {len(values)}"
