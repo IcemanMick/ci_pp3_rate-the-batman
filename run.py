@@ -76,6 +76,16 @@ def update_supporting_worksheet(data):
     print("supporting worksheet updated successfully.\n")
 
 
+def update_production_worksheet(data):
+    """
+    update movie production worksheet and add new row of ratings
+    """
+    print("updating production worksheet...\n")
+    production_worksheet = SHEET.worksheet("production")
+    production_worksheet.append_row(data)
+    print("production worksheet updated successfully.\n")
+
+
 def get_supporting_data():
     """
     rating supporting characters
@@ -92,6 +102,22 @@ def get_supporting_data():
     return supporting_data
 
 
+def get_production_data():
+    """
+    rating production value of movie
+    """
+    while True:
+        data_str = input("Rate: A)Costumes,B)Visuals,C)Music, here: ")
+
+        production_data = data_str.split(",")
+
+        if validate_data(production_data):
+            print("Ratings are valid!")
+            break
+
+    return production_data
+
+
 def main():
     """
     Run all functions for the survey
@@ -102,6 +128,9 @@ def main():
     data = get_supporting_data()
     supporting_data = [int(num) for num in data]
     update_supporting_worksheet(supporting_data)
+    data = get_production_data()
+    production_data = [int(num) for num in data]
+    update_production_worksheet(production_data)
 
 
 print("Welcome to Rate The Batman!\n")
