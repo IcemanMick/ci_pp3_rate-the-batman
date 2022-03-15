@@ -15,7 +15,9 @@ SHEET = GSPREAD_CLIENT.open('rate_the_batman')
 
 def get_sales_data():
     """
-    Get ratings of main characters from the user
+    Get ratings of main characters from the user.
+    If incorrect ratings are entered, a while loop prompts the user
+    to try again until valid ratings are entered.
     """
     while True:
         print("Please answer each question with a rating between 1 to 10.")
@@ -54,4 +56,16 @@ def validate_data(values):
     return True
 
 
+def update_sales_worksheet(data):
+    """
+    update main characters worksheet and add new row of ratings
+    """
+    print("updating sales worksheet...\n")
+    sales_worksheet = SHEET.worksheet("sales")
+    sales_worksheet.append_row(data)
+    print("sales worksheet updated successfully.\n")
+
+
 data = get_sales_data()
+sales_data = [int(num) for num in data]
+update_sales_worksheet(sales_data)
