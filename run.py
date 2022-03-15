@@ -66,6 +66,14 @@ def update_sales_worksheet(data):
     print("sales worksheet updated successfully.\n")
 
 
-data = get_sales_data()
-sales_data = [int(num) for num in data]
-update_sales_worksheet(sales_data)
+def main():
+    """
+    Run all functions for the survey
+    """
+    data = get_sales_data()
+    sales_data = [int(num) for num in data]
+    update_sales_worksheet(sales_data)
+
+
+print("Welcome to Rate The Batman")
+main()
