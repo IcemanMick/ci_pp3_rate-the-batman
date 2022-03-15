@@ -19,12 +19,11 @@ def get_sales_data():
     If incorrect ratings are entered, a while loop prompts the user
     to try again until valid ratings are entered.
     """
+    print("Please answer each question with a rating between 1 to 10.")
+    print("1 being the lowest score and 10 being the highest score.\n")
+    print("Ratings should be 3 numbers for A,B,C, separated by commas.")
+    print("Example: 10,9,7\n")
     while True:
-        print("Please answer each question with a rating between 1 to 10.")
-        print("1 being the lowest score and 10 being the highest score.\n")
-        print("Ratings should be 3 numbers for A,B,C, separated by commas.")
-        print("Example: 10,9,7\n")
-
         data_str = input("Rate: A)Batman,B)Catwoman,C)The Riddler, here: ")
 
         sales_data = data_str.split(",")
@@ -50,7 +49,7 @@ def validate_data(values):
                 f"3 ratings should be entered, you gave {len(values)}"
             )
     except ValueError as e:
-        print(f"Invalid rating/number of ratings: {e}. Please try again.\n")
+        print(f"Invalid data: {e}. Please try again.\n")
         return False
 
     return True
