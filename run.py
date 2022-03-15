@@ -17,22 +17,29 @@ def get_sales_data():
     """
     Get ratings of main characters from the user
     """
+    while True:
+        print("Please answer each question with a rating between 1 to 10.")
+        print("1 being the lowest score and 10 being the highest score.\n")
+        print("Ratings should be 3 numbers for A,B,C, separated by commas.")
+        print("Example: 10,9,7\n")
 
-    print("Please answer each question with a rating between 1 to 10.")
-    print("1 being the lowest score and 10 being the highest score.\n")
-    print("Ratings should be 3 numbers for A, B, & C, separated by commas")
-    print("Example: 10,9,7\n")
-    print("Please rate: A) Batman B) Catwoman C) The Riddler\n")
+        data_str = input("Rate: A)Batman,B)Catwoman,C)The Riddler, here: ")
 
-    data_str = input("Enter your three ratings here: ")
+        sales_data = data_str.split(",")
 
-    sales_data = data_str.split(",")
-    validate_data(sales_data)
+        if validate_data(sales_data):
+            print("Ratings are valid!")
+            break
+
+    return sales_data
 
 
 def validate_data(values):
     """
     Inside try converts all strings to integers.
+    ValueError is raised if if strings are entered and cannot be converted
+    to integers.
+    ValueError also raised if more or less than three ratings are entered.
     """
     try:
         [int(value) for value in values]
@@ -41,7 +48,10 @@ def validate_data(values):
                 f"3 ratings should be entered, you gave {len(values)}"
             )
     except ValueError as e:
-        print(f"Invalid number of ratings: {e}. Please try again.\n")
+        print(f"Invalid rating/number of ratings: {e}. Please try again.\n")
+        return False
+
+    return True
 
 
-get_sales_data()
+data = get_sales_data()
