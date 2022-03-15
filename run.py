@@ -56,34 +56,15 @@ def validate_data(values):
     return True
 
 
-def update_sales_worksheet(data):
+def update_worksheet(data, worksheet):
     """
-    update main characters worksheet and add new row of ratings
+    Updates the correct worksheet with the corresponding ratings
+    provided by the user for each question
     """
-    print("updating sales worksheet...\n")
-    sales_worksheet = SHEET.worksheet("sales")
-    sales_worksheet.append_row(data)
-    print("sales worksheet updated successfully.\n")
-
-
-def update_supporting_worksheet(data):
-    """
-    update supporting characters worksheet and add new row of ratings
-    """
-    print("updating supporting worksheet...\n")
-    supporting_worksheet = SHEET.worksheet("supporting")
-    supporting_worksheet.append_row(data)
-    print("supporting worksheet updated successfully.\n")
-
-
-def update_production_worksheet(data):
-    """
-    update movie production worksheet and add new row of ratings
-    """
-    print("updating production worksheet...\n")
-    production_worksheet = SHEET.worksheet("production")
-    production_worksheet.append_row(data)
-    print("production worksheet updated successfully.\n")
+    print(f"Updating {worksheet} worksheet...\n")
+    worksheet_to_update = SHEET.worksheet(worksheet)
+    worksheet_to_update.append_row(data)
+    print(f"{worksheet} worksheet updated successfully")
 
 
 def get_supporting_data():
@@ -124,13 +105,13 @@ def main():
     """
     data = get_sales_data()
     sales_data = [int(num) for num in data]
-    update_sales_worksheet(sales_data)
+    update_worksheet(sales_data, "sales")
     data = get_supporting_data()
     supporting_data = [int(num) for num in data]
-    update_supporting_worksheet(supporting_data)
+    update_worksheet(supporting_data, "supporting")
     data = get_production_data()
     production_data = [int(num) for num in data]
-    update_production_worksheet(production_data)
+    update_worksheet(production_data, "production")
 
 
 print("Welcome to Rate The Batman!\n")
