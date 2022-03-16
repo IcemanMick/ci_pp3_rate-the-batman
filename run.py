@@ -116,27 +116,5 @@ def main():
     update_worksheet(production_data, "production")
 
 
-def get_overall_score():
-    """
-    get overall score
-    """
-    print("Just one final rating needed,this time only 1 number is required")
-    print("Example: 8\n")
-    while True:
-        try:
-            data_str = int(input("How would you overall rate The Batman? "))
-            break
-        except ValueError:
-            print("Please rate with a number only\n")
-            continue
-
-        overall_data = int(data_str)
-        return overall_data
-
-
 print("Welcome to Rate The Batman!\n")
 main()
-
-overall_data = get_overall_score()
-# overall_data =
-update_worksheet(overall_data, "overall")
