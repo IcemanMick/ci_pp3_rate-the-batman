@@ -118,7 +118,7 @@ def calculate_surplus_data(sales_row):
 
     # return surplus_data
 
-    print("Calculating total row")
+    print("Calculating total your total rating for The Batman")
     production = SHEET.worksheet("production").get_all_values()
     production_row = production[-1]
 
@@ -127,7 +127,10 @@ def calculate_surplus_data(sales_row):
         total = int(production) + surplus_data
         total_surplus_data.append(total)
 
-    return total_surplus_data
+    score = total_surplus_data
+    total_score = sum(score)
+
+    return total_score
 
 
 def main():
@@ -144,7 +147,7 @@ def main():
     production_data = [int(num) for num in data]
     update_worksheet(production_data, "production")
     new_surplus_data = calculate_surplus_data(sales_data)
-    print(new_surplus_data)
+    print(f"You score The Batman {new_surplus_data} out of 90")
 
 
 print("Welcome to Rate The Batman!\n")
