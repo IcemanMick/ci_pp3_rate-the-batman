@@ -1,5 +1,7 @@
 import gspread
 from google.oauth2.service_account import Credentials
+from pprint import pprint
+
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
@@ -101,6 +103,16 @@ def get_production_data():
     return production_data
 
 
+def calculate_surplus_data(sales_row):
+    """
+    calculating total score given by user
+    """
+    print("Calculating total rating...\n")
+    supporting = SHEET.worksheet("supporting").get_all_values()
+    supporting_row = supporting[-1]
+    print(supporting_row)
+
+
 def main():
     """
     Run all functions
@@ -114,6 +126,7 @@ def main():
     data = get_production_data()
     production_data = [int(num) for num in data]
     update_worksheet(production_data, "production")
+    calculate_surplus_data(sales_data)
 
 
 print("Welcome to Rate The Batman!\n")
