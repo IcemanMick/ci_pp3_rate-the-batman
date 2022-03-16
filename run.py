@@ -107,7 +107,7 @@ def calculate_surplus_data(sales_row):
     """
     calculating total score given by user
     """
-    print("Calculating total rating...\n")
+    print("Calculating subtotal rating...\n")
     supporting = SHEET.worksheet("supporting").get_all_values()
     supporting_row = supporting[-1]
 
@@ -116,7 +116,18 @@ def calculate_surplus_data(sales_row):
         surplus = int(supporting) + sales
         surplus_data.append(surplus)
 
-    return surplus_data
+    # return surplus_data
+
+    print("Calculating total row")
+    production = SHEET.worksheet("production").get_all_values()
+    production_row = production[-1]
+
+    total_surplus_data = []
+    for production, surplus_data in zip(production_row, surplus_data):
+        total = int(production) + surplus_data
+        total_surplus_data.append(total)
+
+    return total_surplus_data
 
 
 def main():
