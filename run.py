@@ -108,7 +108,7 @@ def get_supporting_ratings():
         supporting_data = rating_str.split(",")
 
         if validate_data(supporting_data):
-            print("Ratings successfully recorded!")
+            print("Supporting characters successfully rated!")
             break
 
     return supporting_data
@@ -125,17 +125,17 @@ def get_production_ratings():
         production_data = rating_str.split(",")
 
         if validate_data(production_data):
-            print("Ratings successfully recorded!")
+            print("Production Quality successfully rated!")
             break
 
     return production_data
 
 
-def calculate_surplus_data(sales_row):
+def calculate_total_rating(sales_row):
     """
     calculating total score given by user
     """
-    print("Calculating subtotal rating...\n")
+    print("Calculating your total movie rating...\n")
     supporting = SHEET.worksheet("supporting").get_all_values()
     supporting_row = supporting[-1]
 
@@ -243,7 +243,7 @@ def main():
     data = get_production_ratings()
     production_data = [int(num) for num in data]
     update_worksheet(production_data, "production")
-    new_surplus_data = calculate_surplus_data(main_data)
+    new_surplus_data = calculate_total_rating(main_data)
     print(f"You score The Batman {new_surplus_data} out of 90")
 
 
