@@ -55,7 +55,7 @@ def get_main_ratings():
     print("Example: 10,9,7\n")
     print("Please rate the main characters here:")
     while True:
-        rating_str = input("A)Batman,B)Catwoman,C)The Riddler: ")
+        rating_str = input("A)Batman,B)Catwoman,C)The Riddler: \n")
 
         main_data = rating_str.split(",")
 
@@ -103,7 +103,7 @@ def get_supporting_ratings():
     """
     print("Please rate the supporting characters here:")
     while True:
-        rating_str = input("A)Alfred,B)Penguin,C)Jim Gordon: ")
+        rating_str = input("A)Alfred,B)Penguin,C)Jim Gordon: \n")
 
         supporting_data = rating_str.split(",")
 
@@ -120,7 +120,7 @@ def get_production_ratings():
     """
     print("Please rate the production values here:")
     while True:
-        rating_str = input("A)Costumes,B)Visuals,C)Music: ")
+        rating_str = input("A)Costumes,B)Visuals,C)Music: \n")
 
         production_data = rating_str.split(",")
 
@@ -140,8 +140,8 @@ def calculate_total_rating(main_row):
     supporting_row = supporting[-1]
 
     surplus_data = []
-    for supporting, sales in zip(supporting_row, main_row):
-        surplus = int(supporting) + sales
+    for supporting, main in zip(supporting_row, main_row):
+        surplus = int(supporting) + main
         surplus_data.append(surplus)
 
     # return surplus_data
@@ -166,7 +166,7 @@ def get_average_rating():
     gets sum of each column on each worksheet for average score
     calculation
     """
-    main_sheet = SHEET.worksheet("sales")
+    main_sheet = SHEET.worksheet("main")
     batman_column = main_sheet.col_values(1)
     batman_column.remove("batman")
     for i in range(0, len(batman_column)):
@@ -234,7 +234,7 @@ def main():
     """
     data = get_main_ratings()
     main_data = [int(num) for num in data]
-    update_worksheet(main_data, "sales")
+    update_worksheet(main_data, "main")
     data = get_supporting_ratings()
     supporting_data = [int(num) for num in data]
     update_worksheet(supporting_data, "supporting")
