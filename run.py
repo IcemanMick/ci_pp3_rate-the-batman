@@ -139,10 +139,10 @@ def calculate_total_rating(main_row):
     supporting = SHEET.worksheet("supporting").get_all_values()
     supporting_row = supporting[-1]
 
-    surplus_data = []
+    subtotal_data = []
     for supporting, main in zip(supporting_row, main_row):
-        surplus = int(supporting) + main
-        surplus_data.append(surplus)
+        subtotal = int(supporting) + main
+        subtotal_data.append(subtotal)
 
     # return surplus_data
 
@@ -150,12 +150,12 @@ def calculate_total_rating(main_row):
     production = SHEET.worksheet("production").get_all_values()
     production_row = production[-1]
 
-    total_surplus_data = []
-    for production, surplus_data in zip(production_row, surplus_data):
-        total = int(production) + surplus_data
-        total_surplus_data.append(total)
+    total_data = []
+    for production, subtotal_data in zip(production_row, subtotal_data):
+        total = int(production) + subtotal_data
+        total_data.append(total)
 
-    score = total_surplus_data
+    score = total_data
     total_score = sum(score)
 
     return total_score
@@ -171,7 +171,9 @@ def get_average_rating():
     batman_column.remove("batman")
     for i in range(0, len(batman_column)):
         batman_column[i] = int(batman_column[i])
-    print(sum(batman_column))
+    # print()(sum(batman_column))
+    a = sum(batman_column)
+    # print(a)
 
     # dont forget to return each
 
@@ -181,51 +183,71 @@ def get_average_rating():
     catwoman_column.remove("catwoman")
     for i in range(0, len(catwoman_column)):
         catwoman_column[i] = int(catwoman_column[i])
-    print(sum(catwoman_column))
+    # print(sum(catwoman_column))
+    b = sum(catwoman_column)
+    # print(b)
 
     riddler_column = main_sheet.col_values(3)
     riddler_column.remove("the riddler")
     for i in range(0, len(riddler_column)):
         riddler_column[i] = int(riddler_column[i])
-    print(sum(riddler_column))
+    # print(sum(riddler_column))
+    c = sum(riddler_column)
+    # print(c)
 
     support_sheet = SHEET.worksheet("supporting")
     alfred_column = support_sheet.col_values(1)
     alfred_column.remove("alfred")
     for i in range(0, len(alfred_column)):
         alfred_column[i] = int(alfred_column[i])
-    print(sum(alfred_column))
+    # print(sum(alfred_column))
+    d = sum(alfred_column)
+    # print(d)
 
     penguin_column = support_sheet.col_values(2)
     penguin_column.remove("penguin")
     for i in range(0, len(penguin_column)):
         penguin_column[i] = int(penguin_column[i])
-    print(sum(penguin_column))
+    # print(sum(penguin_column))
+    e = sum(penguin_column)
+    # print(e)
 
     gordon_column = support_sheet.col_values(3)
     gordon_column.remove("jim gordon")
     for i in range(0, len(gordon_column)):
         gordon_column[i] = int(gordon_column[i])
-    print(sum(gordon_column))
+    # print(sum(gordon_column))
+    f = sum(gordon_column)
+    # print(f)
 
     production_sheet = SHEET.worksheet("production")
     visuals_column = production_sheet.col_values(1)
     visuals_column.remove("visuals")
     for i in range(0, len(visuals_column)):
         visuals_column[i] = int(visuals_column[i])
-    print(sum(visuals_column))
+    # print(sum(visuals_column))
+    g = sum(visuals_column)
+    # print(g)
 
     costumes_column = production_sheet.col_values(2)
     costumes_column.remove("costumes")
     for i in range(0, len(costumes_column)):
         costumes_column[i] = int(costumes_column[i])
-    print(sum(costumes_column))
+    # print(sum(costumes_column))
+    h = sum(costumes_column)
+    # print(h)
 
     music_column = production_sheet.col_values(3)
     music_column.remove("music")
     for i in range(0, len(music_column)):
         music_column[i] = int(music_column[i])
-    print(sum(music_column))
+    # print(sum(music_column))
+    i = sum(music_column)
+    # print(i)
+
+    all_ratings = (a+b+c+d+e+f+g+h+i) / len(batman_column)
+    print(f"The Batman has an average {int(all_ratings)}% rating.")
+    print("This score is an average of all valid surveys received.")
 
 
 def main():
@@ -241,8 +263,8 @@ def main():
     data = get_production_ratings()
     production_data = [int(num) for num in data]
     update_worksheet(production_data, "production")
-    new_surplus_data = calculate_total_rating(main_data)
-    print(f"You score The Batman {new_surplus_data} out of 90")
+    new_total_data = calculate_total_rating(main_data)
+    print(f"You score The Batman {new_total_data} out of 90")
 
 
 print("Welcome to Rate The Batman!\n")
