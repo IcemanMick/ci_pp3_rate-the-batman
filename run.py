@@ -49,12 +49,12 @@ def get_main_ratings():
     # lines 45 to 48 are instructions for user at top of survey.
     while True:  # starts while loop.
         rating_str = input("A)Batman,B)Catwoman,C)The Riddler: \n")
-        # create question and input for user answers
+        # creates question and input space for user answers
 
         main_data = rating_str.split(",")
         # splits string into list
 
-        if validate_data(main_data):  # calls function in if loop
+        if validate_data(main_data):  # calls function in an if loop
             break
         # if true end loop with break
 
@@ -107,13 +107,16 @@ def get_supporting_ratings():
     rating supporting characters
     """
     print("\nPlease rate the supporting characters here:")
-    while True:
+    while True:  # starts while loop.
         rating_str = input("A)Alfred,B)Penguin,C)Jim Gordon: \n")
+        # creates question and input space for user answers
 
         supporting_data = rating_str.split(",")
+        # splits string into list
 
-        if validate_data(supporting_data):
+        if validate_data(supporting_data):  # calls function in an if loop
             break
+        # if true end loop with break
 
     return supporting_data
 
