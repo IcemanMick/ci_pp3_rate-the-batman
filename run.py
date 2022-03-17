@@ -46,17 +46,17 @@ def get_main_ratings():
     print("Ratings should be 3 numbers only for A,B,C, separated by commas.")
     print("Example: 10,9,7\n")
     print("Please rate the main characters here:")
-    # lines 45 to 48 are instructions for user at top of survey.
-    while True:  # starts while loop.
+    # Lines 45 to 48 are instructions for user at top of survey.
+    while True:  # Starts while loop.
         rating_str = input("A)Batman,B)Catwoman,C)The Riddler: \n")
         # creates question and input space for user answers
 
         main_data = rating_str.split(",")
-        # splits string into list
+        # Splits string into list
 
-        if validate_data(main_data):  # calls function in an if loop
+        if validate_data(main_data):  # Calls function in an if loop
             break
-        # if true end loop with break
+        # If true end loop with break
 
     return main_data
 
@@ -70,11 +70,11 @@ def validate_data(values):
     Lines 64 to 87 code credit structure to Love Sandwiches by Code
     Institute. Code content is mix of custom and Code Institute.
     """
-    try:  # starts try statement
+    try:  # Starts try statement
         [int(value) for value in values]
-        # loops through values entered and converts to integers
+        # Loops through values entered and converts to integers
         if len(values) != 3:
-            # number of values entered can't be less than or more than three
+            # Number of values entered can't be less than or more than three
             raise ValueError(  # ValueError custom message
                 f"3 ratings should be entered, you gave {len(values)}"
             )
@@ -111,16 +111,16 @@ def get_supporting_ratings():
     Code Instititue. Code content is mix of custom and Code Institute.
     """
     print("\nPlease rate the supporting characters here:")
-    while True:  # starts while loop.
+    while True:  # Starts while loop.
         rating_str = input("A)Alfred,B)Penguin,C)Jim Gordon: \n")
-        # creates question and input space for user answers
+        # Creates question and input space for user answers
 
         supporting_data = rating_str.split(",")
-        # splits string into list
+        # Splits string into list
 
-        if validate_data(supporting_data):  # calls function in an if loop
+        if validate_data(supporting_data):  # Calls function in an if loop
             break
-        # if true end loop with break
+        # If true end loop with break
 
     return supporting_data
 
@@ -134,43 +134,77 @@ def get_production_ratings():
     Code Instititue. Code content is mix of custom and Code Institute.
     """
     print("\nPlease rate the production values here:")
-    while True:  # starts while loop.
+    while True:  # Starts while loop.
         rating_str = input("A)Costumes,B)Visuals,C)Music: \n")
-        # creates question and input space for user answers
+        # Creates question and input space for user answers
 
         production_data = rating_str.split(",")
-        # splits string into list
+        # Splits string into list
 
         if validate_data(production_data):
             break
-         # if true end loop with break
+        # If true end loop with break
 
     return production_data
 
 
 def calculate_total_rating(main_row):
     """
-    calculating total score given by user
+    Calculates total score given by user by first passing the main_row
+    argument data provided by the user, when they rate the main characters,
+    through the function. The first part of the function adds the main
+    character ratings to the latest row  of the supporting character ratings.
+    The lastest rowof supporting ratings is accessed using the slice
+    method of -1.
+    Main ratings and supporting ratings are then iterated through each
+    other simultaneously using the zip() method.
+    Supporting ratings are converted to integers using the int() method
+    and added to the main ratings integers.
+    This subtotal is added to an empty list called subtotal_data
+    using gspread.
+    This process is repeated in the second part of the function for
+    production ratings. subtotal_data list and production ratings are
+    added together and insterted into total_data list.
+    total_data_list now contains a list of the summation of all 9 ratings
+    provided by the user.
+    Finally sum() method is used to add all the integers in the
+    total_data list together and it is returned as a total score.
+    Lines 151 to 189 code structure credited to Love Sandwiches by Code
+    Institute. Code content is mix of custom and Code Institute.
+    Lines 193 to 196 are custom code.
     """
     supporting = SHEET.worksheet("supporting").get_all_values()
+    # Using gspread to access all data on "supporting" Google Sheet
     supporting_row = supporting[-1]
+    # Using slice to access the last row of data on "supporting" Google Sheet
 
     subtotal_data = []
+    # Empty list variable to store subtotal calculation
     for supporting, main in zip(supporting_row, main_row):
+        # For loop iterating through two lists simultaneously using zip()
         subtotal = int(supporting) + main
+        # Converts list of strings to integers and adds list of integers
         subtotal_data.append(subtotal)
+        # Adds summation of subtotal variable to empty subtotal_data list
 
     print("Calculating your total rating for The Batman...\n")
     production = SHEET.worksheet("production").get_all_values()
+    # Using gspread to access all data on "production" Google Sheet
     production_row = production[-1]
+    # Using slice to access the last row of data on "production" Google Sheet
 
     total_data = []
+    # Empty list variable to store total calculation
     for production, subtotal_data in zip(production_row, subtotal_data):
+        # For loop iterating through two lists simultaneously using zip()
         total = int(production) + subtotal_data
+        # Converts list of strings to integers and adds list of integers
         total_data.append(total)
+        # Adds summation of total variable to empty total_data list
 
     score = total_data
     total_score = sum(score)
+    # Creates new variable and adds all integers in the list together
 
     return total_score
 
