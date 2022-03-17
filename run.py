@@ -60,7 +60,7 @@ def get_main_ratings():
         main_data = rating_str.split(",")
 
         if validate_data(main_data):
-            print("Ratings successfully recorded!")
+            print("Main characters successfully rated!")
             break
 
     return main_data
@@ -103,9 +103,9 @@ def get_supporting_data():
     """
     print("Please rate the supporting characters here:")
     while True:
-        data_str = input("A)Alfred,B)Penguin,C)Jim Gordon: ")
+        rating_str = input("A)Alfred,B)Penguin,C)Jim Gordon: ")
 
-        supporting_data = data_str.split(",")
+        supporting_data = rating_str.split(",")
 
         if validate_data(supporting_data):
             print("Ratings successfully recorded!")
@@ -235,15 +235,15 @@ def main():
     Run all functions
     """
     data = get_main_ratings()
-    sales_data = [int(num) for num in data]
-    update_worksheet(sales_data, "sales")
+    main_data = [int(num) for num in data]
+    update_worksheet(main_data, "sales")
     data = get_supporting_data()
     supporting_data = [int(num) for num in data]
     update_worksheet(supporting_data, "supporting")
     data = get_production_data()
     production_data = [int(num) for num in data]
     update_worksheet(production_data, "production")
-    new_surplus_data = calculate_surplus_data(sales_data)
+    new_surplus_data = calculate_surplus_data(main_data)
     print(f"You score The Batman {new_surplus_data} out of 90")
 
 
