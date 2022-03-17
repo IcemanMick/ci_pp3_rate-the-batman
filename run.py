@@ -91,6 +91,12 @@ def update_worksheet(data, worksheet):
     """
     Updates the correct worksheet with the corresponding ratings
     provided by the user for each question
+    Line 90 to 102 code credit to Love Sandwiches by Code
+    Institute.
+    Function uses gspread to access the correct worksheet and data
+    corresponding to the question asked.
+    Adds the ratings provided by the user into a new row of
+    the correct worksheet related to the question.
     """
     worksheet_to_update = SHEET.worksheet(worksheet)
     worksheet_to_update.append_row(data)
