@@ -40,14 +40,14 @@ def get_main_ratings():
     If incorrect ratings are entered, a while loop prompts the user
     to try again until valid ratings are entered.
     Lines 37 to 60 credit code structure to Love Sandwiches by
-    Code Instititue. Code content is custom.
+    Code Instititue. Code content is mix of custom and Code Institute.
     """
     print("Please rate each question between 1 (lowest) to 10 (highest).")
     print("Ratings should be 3 numbers only for A,B,C, separated by commas.")
     print("Example: 10,9,7\n")
     print("Please rate the main characters here:")
     # lines 45 to 48 are instructions for user at top of survey.
-    while True:  # starts while loop
+    while True:  # starts while loop.
         rating_str = input("A)Batman,B)Catwoman,C)The Riddler: \n")
         # create question and input for user answers
 
@@ -55,7 +55,8 @@ def get_main_ratings():
         # splits string into list
 
         if validate_data(main_data):  # calls function in if loop
-            break # if true end loop
+            break
+        # if true end loop with break
 
     return main_data
 
@@ -66,15 +67,21 @@ def validate_data(values):
     ValueError is raised if if strings are entered and cannot be converted
     to integers.
     ValueError also raised if more or less than three ratings are entered.
+    Lines 64 to 87 code credit structure to Love Sandwiches by Code
+    Institute. Code content is mix of custom and Code Institute.
     """
-    try:
+    try:  # starts try statement
         [int(value) for value in values]
+        # loops through values entered and converts to integers
         if len(values) != 3:
-            raise ValueError(
+            # number of values entered can't be less than or more than three
+            raise ValueError(  # ValueError custom message
                 f"3 ratings should be entered, you gave {len(values)}"
             )
     except ValueError as e:
+        # e is the variable for the error which occurs
         print(f"Invalid data: {e}. Please try again.\n")
+        # f-string populates with error that occurs
         return False
 
     return True
@@ -214,7 +221,7 @@ def get_average_rating():
 
     all_ratings = (a+b+c+d+e+f+g+h+i) / len(batman_column)
     print(f"The Batman has an average rating of {int(all_ratings)}%.")
-    print("This score is an average of all valid surveys received.")
+    print("This rating is an average of all valid surveys received.")
 
 
 def main():
