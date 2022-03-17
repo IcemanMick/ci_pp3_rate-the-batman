@@ -172,6 +172,8 @@ def calculate_total_rating(main_row):
     Lines 151 to 189 code structure credited to Love Sandwiches by Code
     Institute. Code content is mix of custom and Code Institute.
     Lines 193 to 196 are custom code.
+    Credit to Stack Overflow for direction on how to sum a list of integers.
+    Full credit given in README.md
     """
     # First part
 
@@ -209,7 +211,7 @@ def calculate_total_rating(main_row):
     # Final part
 
     score = total_data
-    total_score = sum(score)
+    total_score = sum(score)  # Credit to StackOverflow
     # Creates new variable and adds all integers in the list together
 
     return total_score
@@ -225,6 +227,8 @@ def get_average_rating():
     315.
     Full credit given in README.md.
     Other code credit to Love Sandwiches by Code Institute and custom code.
+    Credit to Stack Overflow for direction on how to sum a list of integers.
+    Full credit given in README.md.
     """
     # "main" worksheet
 
@@ -237,7 +241,7 @@ def get_average_rating():
     for i in range(0, len(batman_column)):
         batman_column[i] = int(batman_column[i])
         # For loop to iterating through strings and convert to integers
-    a = sum(batman_column)  # custom code
+    a = sum(batman_column)  # Credit Stack Overflow
 
     catwoman_column = main_sheet.col_values(2)
     # Using gspread to access column 2 on "main" Google Sheet
@@ -246,7 +250,7 @@ def get_average_rating():
     for i in range(0, len(catwoman_column)):
         catwoman_column[i] = int(catwoman_column[i])
         # For loop to iterating through strings and convert to integers
-    b = sum(catwoman_column)  # custom code
+    b = sum(catwoman_column)  # Credit Stack Overflow
 
     riddler_column = main_sheet.col_values(3)
     # Using gspread to access column 3 on "main" Google Sheet
@@ -255,7 +259,7 @@ def get_average_rating():
     for i in range(0, len(riddler_column)):
         riddler_column[i] = int(riddler_column[i])
         # For loop to iterating through strings and convert to integers
-    c = sum(riddler_column)  # custom code
+    c = sum(riddler_column)  # Credit Stack Overflow
 
     # "supporting" worksheet
 
@@ -268,7 +272,7 @@ def get_average_rating():
     for i in range(0, len(alfred_column)):
         alfred_column[i] = int(alfred_column[i])
         # For loop to iterating through strings and convert to integers
-    d = sum(alfred_column)  # custom code
+    d = sum(alfred_column)  # Credit Stack Overflow
 
     penguin_column = support_sheet.col_values(2)
     # Using gspread to access column 2 on "supporting" Google Sheet
@@ -277,7 +281,7 @@ def get_average_rating():
     for i in range(0, len(penguin_column)):
         penguin_column[i] = int(penguin_column[i])
         # For loop to iterating through strings and convert to integers
-    e = sum(penguin_column)  # custom code
+    e = sum(penguin_column)  # Credit Stack Overflow
 
     gordon_column = support_sheet.col_values(3)
     # Using gspread to access column 3 on "supporting" Google Sheet
@@ -286,7 +290,7 @@ def get_average_rating():
     for i in range(0, len(gordon_column)):
         gordon_column[i] = int(gordon_column[i])
         # For loop to iterating through strings and convert to integers
-    f = sum(gordon_column)  # custom code
+    f = sum(gordon_column)  # Credit Stack Overflow
 
     # "production" worksheet
 
@@ -299,7 +303,7 @@ def get_average_rating():
     for i in range(0, len(visuals_column)):
         visuals_column[i] = int(visuals_column[i])
         # For loop to iterating through strings and convert to integers
-    g = sum(visuals_column)  # custom code
+    g = sum(visuals_column)  # Credit Stack Overflow
 
     costumes_column = production_sheet.col_values(2)
     # Using gspread to access column 2 on "production" Google Sheet
@@ -308,7 +312,7 @@ def get_average_rating():
     for i in range(0, len(costumes_column)):
         costumes_column[i] = int(costumes_column[i])
         # For loop to iterating through strings and convert to integers
-    h = sum(costumes_column)  # custom code
+    h = sum(costumes_column)  # Credit Stack Overflow
 
     music_column = production_sheet.col_values(3)
     # Using gspread to access column 3 on "production" Google Sheet
@@ -317,7 +321,7 @@ def get_average_rating():
     for i in range(0, len(music_column)):
         music_column[i] = int(music_column[i])
         # For loop to iterating through strings and convert to integers
-    i = sum(music_column)  # custom code
+    i = sum(music_column)  # Credit Stack Overflow
 
     all_ratings = (a+b+c+d+e+f+g+h+i) / len(batman_column)  # custom code
     # Add summed lists of integers into variable. Get average rating of users
