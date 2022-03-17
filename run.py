@@ -265,6 +265,8 @@ def main():
     update_worksheet(production_data, "production")
     new_total_data = calculate_total_rating(main_data)
     print(f"You score The Batman {new_total_data} out of 90")
+    percentage_rating = (new_total_data / 90) * 100
+    print(f"Your percentage rating of The Batman is {int(percentage_rating)}%")
 
 
 print("Welcome to Rate The Batman!\n")
