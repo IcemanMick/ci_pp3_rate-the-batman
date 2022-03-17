@@ -14,6 +14,7 @@ SCOPED_CREDS = CREDS.with_scopes(SCOPE)
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('rate_the_batman')
 
+
 def get_main_ratings():
     """
     Get ratings of main characters from the user.
@@ -21,7 +22,7 @@ def get_main_ratings():
     to try again until valid ratings are entered.
     """
     print("Please rate each question between 1 (lowest) to 10 (highest).")
-    print("Ratings should be 3 numbers for A,B,C, separated by commas.")
+    print("Ratings should be 3 numbers only for A,B,C, separated by commas.")
     print("Example: 10,9,7\n")
     while True:
         rating_str = input(" Rate: A)Batman,B)Catwoman,C)The Riddler: \n")
@@ -29,7 +30,6 @@ def get_main_ratings():
         main_data = rating_str.split(",")
 
         if validate_data(main_data):
-            print("Main characters successfully rated!")
             break
 
     return main_data
@@ -60,7 +60,6 @@ def update_worksheet(data, worksheet):
     Updates the correct worksheet with the corresponding ratings
     provided by the user for each question
     """
-    print(f"Updating {worksheet} worksheet...\n")
     worksheet_to_update = SHEET.worksheet(worksheet)
     worksheet_to_update.append_row(data)
     print(f"{worksheet} worksheet updated successfully\n")
@@ -77,7 +76,6 @@ def get_supporting_ratings():
         supporting_data = rating_str.split(",")
 
         if validate_data(supporting_data):
-            print("Supporting characters successfully rated!")
             break
 
     return supporting_data
@@ -94,7 +92,6 @@ def get_production_ratings():
         production_data = rating_str.split(",")
 
         if validate_data(production_data):
-            print("Production Quality successfully rated!")
             break
 
     return production_data
@@ -140,9 +137,7 @@ def get_average_rating():
     batman_column.remove("batman")
     for i in range(0, len(batman_column)):
         batman_column[i] = int(batman_column[i])
-    # print()(sum(batman_column))
     a = sum(batman_column)
-    # print(a)
 
     # dont forget to return each
 
@@ -152,59 +147,45 @@ def get_average_rating():
     catwoman_column.remove("catwoman")
     for i in range(0, len(catwoman_column)):
         catwoman_column[i] = int(catwoman_column[i])
-    # print(sum(catwoman_column))
     b = sum(catwoman_column)
-    # print(b)
 
     riddler_column = main_sheet.col_values(3)
     riddler_column.remove("the riddler")
     for i in range(0, len(riddler_column)):
         riddler_column[i] = int(riddler_column[i])
-    # print(sum(riddler_column))
     c = sum(riddler_column)
-    # print(c)
 
     support_sheet = SHEET.worksheet("supporting")
     alfred_column = support_sheet.col_values(1)
     alfred_column.remove("alfred")
     for i in range(0, len(alfred_column)):
         alfred_column[i] = int(alfred_column[i])
-    # print(sum(alfred_column))
     d = sum(alfred_column)
-    # print(d)
 
     penguin_column = support_sheet.col_values(2)
     penguin_column.remove("penguin")
     for i in range(0, len(penguin_column)):
         penguin_column[i] = int(penguin_column[i])
-    # print(sum(penguin_column))
     e = sum(penguin_column)
-    # print(e)
 
     gordon_column = support_sheet.col_values(3)
     gordon_column.remove("jim gordon")
     for i in range(0, len(gordon_column)):
         gordon_column[i] = int(gordon_column[i])
-    # print(sum(gordon_column))
     f = sum(gordon_column)
-    # print(f)
 
     production_sheet = SHEET.worksheet("production")
     visuals_column = production_sheet.col_values(1)
     visuals_column.remove("visuals")
     for i in range(0, len(visuals_column)):
         visuals_column[i] = int(visuals_column[i])
-    # print(sum(visuals_column))
     g = sum(visuals_column)
-    # print(g)
 
     costumes_column = production_sheet.col_values(2)
     costumes_column.remove("costumes")
     for i in range(0, len(costumes_column)):
         costumes_column[i] = int(costumes_column[i])
-    # print(sum(costumes_column))
     h = sum(costumes_column)
-    # print(h)
 
     music_column = production_sheet.col_values(3)
     music_column.remove("music")
