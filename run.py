@@ -15,10 +15,6 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('rate_the_batman')
 
 
-def end_program():
-    print("If you change your mind we'd love to hear your feedback.")
-
-
 def get_main_ratings():
     """
     Get ratings of main characters from the user.
