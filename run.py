@@ -1,6 +1,5 @@
 import gspread
 from google.oauth2.service_account import Credentials
-from pprint import pprint
 
 
 SCOPE = [
@@ -26,7 +25,7 @@ def get_main_ratings():
     print("Example: 10,9,7\n")
     print("Please rate the main characters here:")
     while True:
-        rating_str = input("Rate: A)Batman,B)Catwoman,C)The Riddler: \n")
+        rating_str = input("A)Batman,B)Catwoman,C)The Riddler: \n")
 
         main_data = rating_str.split(",")
 
@@ -63,7 +62,6 @@ def update_worksheet(data, worksheet):
     """
     worksheet_to_update = SHEET.worksheet(worksheet)
     worksheet_to_update.append_row(data)
-    # print(f"{worksheet} worksheet updated successfully\n")
 
 
 def get_supporting_ratings():
@@ -110,8 +108,6 @@ def calculate_total_rating(main_row):
         subtotal = int(supporting) + main
         subtotal_data.append(subtotal)
 
-    # return surplus_data
-
     print("Calculating your total rating for The Batman...\n")
     production = SHEET.worksheet("production").get_all_values()
     production_row = production[-1]
@@ -138,10 +134,6 @@ def get_average_rating():
     for i in range(0, len(batman_column)):
         batman_column[i] = int(batman_column[i])
     a = sum(batman_column)
-
-    # dont forget to return each
-
-    # print(str(batman_column))
 
     catwoman_column = main_sheet.col_values(2)
     catwoman_column.remove("catwoman")
@@ -220,5 +212,7 @@ def main():
     get_average_rating()
 
 
+# Welcome message at start of program
 print("Welcome to Rate The Batman!\n")
+# calling main function to run all program functions
 main()
