@@ -97,7 +97,7 @@ def update_worksheet(data, worksheet):
     print(f"{worksheet} worksheet updated successfully\n")
 
 
-def get_supporting_data():
+def get_supporting_ratings():
     """
     rating supporting characters
     """
@@ -114,15 +114,15 @@ def get_supporting_data():
     return supporting_data
 
 
-def get_production_data():
+def get_production_ratings():
     """
     rating production value of movie
     """
     print("Please rate the production values here:")
     while True:
-        data_str = input("A)Costumes,B)Visuals,C)Music: ")
+        rating_str = input("A)Costumes,B)Visuals,C)Music: ")
 
-        production_data = data_str.split(",")
+        production_data = rating_str.split(",")
 
         if validate_data(production_data):
             print("Ratings successfully recorded!")
@@ -237,10 +237,10 @@ def main():
     data = get_main_ratings()
     main_data = [int(num) for num in data]
     update_worksheet(main_data, "sales")
-    data = get_supporting_data()
+    data = get_supporting_ratings()
     supporting_data = [int(num) for num in data]
     update_worksheet(supporting_data, "supporting")
-    data = get_production_data()
+    data = get_production_ratings()
     production_data = [int(num) for num in data]
     update_worksheet(production_data, "production")
     new_surplus_data = calculate_surplus_data(main_data)
