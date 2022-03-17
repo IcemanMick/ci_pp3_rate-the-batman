@@ -43,7 +43,7 @@ def end_program():
     print("If you change your mind we'd love to hear your feedback.")
 
 
-def get_sales_data():
+def get_main_ratings():
     """
     Get ratings of main characters from the user.
     If incorrect ratings are entered, a while loop prompts the user
@@ -55,15 +55,15 @@ def get_sales_data():
     print("Example: 10,9,7\n")
     print("Please rate the main characters here:")
     while True:
-        data_str = input("A)Batman,B)Catwoman,C)The Riddler: ")
+        rating_str = input("A)Batman,B)Catwoman,C)The Riddler: ")
 
-        sales_data = data_str.split(",")
+        main_data = rating_str.split(",")
 
-        if validate_data(sales_data):
+        if validate_data(main_data):
             print("Ratings successfully recorded!")
             break
 
-    return sales_data
+    return main_data
 
 
 def validate_data(values):
@@ -177,13 +177,13 @@ def get_average_rating():
 
     # print(str(batman_column))
 
-    catwoman_column = main_average.col_values(2)
+    catwoman_column = main_sheet.col_values(2)
     catwoman_column.remove("catwoman")
     for i in range(0, len(catwoman_column)):
         catwoman_column[i] = int(catwoman_column[i])
     print(sum(catwoman_column))
 
-    riddler_column = main_average.col_values(3)
+    riddler_column = main_sheet.col_values(3)
     riddler_column.remove("the riddler")
     for i in range(0, len(riddler_column)):
         riddler_column[i] = int(riddler_column[i])
@@ -234,7 +234,7 @@ def main():
     """
     Run all functions
     """
-    data = get_sales_data()
+    data = get_main_ratings()
     sales_data = [int(num) for num in data]
     update_worksheet(sales_data, "sales")
     data = get_supporting_data()
