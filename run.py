@@ -202,9 +202,6 @@ def get_average_rating():
     print(sum(music_column))
 
 
-
-
-
 def main():
     """
     Run all functions
@@ -223,6 +220,6 @@ def main():
 
 
 print("Welcome to Rate The Batman!\n")
-# main()
+main()
 
 get_average_rating()
