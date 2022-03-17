@@ -219,6 +219,12 @@ def get_average_rating():
     """
     Gets sum of each of the three columns on each worksheet for average score
     calculation.
+    Credit to "stack overflow" for code for for loop iterating through a list
+    and converting string numbers to integers on lines 233 & 234, 242 & 243,
+    252 & 253, 265 & 266, 274 & 275, 283 & 284, 296 & 297, 305 & 306, and 314 &
+    315.
+    Full credit given in README.md.
+    Other code credit to Love Sandwiches by Code Institute and custome code.
     """
     # "main" worksheet
 
@@ -226,27 +232,30 @@ def get_average_rating():
     # Using gspread to access "main" Google Sheet
     batman_column = main_sheet.col_values(1)
     # Using gspread to access column 1 on "main" Google Sheet
-    batman_column.remove("batman")
+    batman_column.remove("batman")  # custom code
     # Remove the column heading string "batman" so column can be sum totalled
     for i in range(0, len(batman_column)):
         batman_column[i] = int(batman_column[i])
-    a = sum(batman_column)
+        # For loop to iterating through strings and convert to integers
+    a = sum(batman_column)  # custom code
 
     catwoman_column = main_sheet.col_values(2)
     # Using gspread to access column 2 on "main" Google Sheet
-    catwoman_column.remove("catwoman")
+    catwoman_column.remove("catwoman")  # custom code
     # Remove the column heading string "catwoman" so column can be sum totalled
     for i in range(0, len(catwoman_column)):
         catwoman_column[i] = int(catwoman_column[i])
-    b = sum(catwoman_column)
+        # For loop to iterating through strings and convert to integers
+    b = sum(catwoman_column)  # custom code
 
     riddler_column = main_sheet.col_values(3)
     # Using gspread to access column 3 on "main" Google Sheet
-    riddler_column.remove("the riddler")
+    riddler_column.remove("the riddler")  # custom code
     # Remove the column heading string "riddler" so column can be sum totalled
     for i in range(0, len(riddler_column)):
         riddler_column[i] = int(riddler_column[i])
-    c = sum(riddler_column)
+        # For loop to iterating through strings and convert to integers
+    c = sum(riddler_column)  # custom code
 
     # "supporting" worksheet
 
@@ -254,27 +263,30 @@ def get_average_rating():
     # Using gspread to access "supporting" Google Sheet
     alfred_column = support_sheet.col_values(1)
     # Using gspread to access column 1 on "supporting" Google Sheet
-    alfred_column.remove("alfred")
+    alfred_column.remove("alfred")  # custom code
     # Remove the column heading string "alfred" so column can be sum totalled
     for i in range(0, len(alfred_column)):
         alfred_column[i] = int(alfred_column[i])
-    d = sum(alfred_column)
+        # For loop to iterating through strings and convert to integers
+    d = sum(alfred_column)  # custom code
 
     penguin_column = support_sheet.col_values(2)
     # Using gspread to access column 2 on "supporting" Google Sheet
-    penguin_column.remove("penguin")
+    penguin_column.remove("penguin")  # custom code
     # Remove the column heading string "penguin" so column can be sum totalled
     for i in range(0, len(penguin_column)):
         penguin_column[i] = int(penguin_column[i])
-    e = sum(penguin_column)
+        # For loop to iterating through strings and convert to integers
+    e = sum(penguin_column)  # custom code
 
     gordon_column = support_sheet.col_values(3)
     # Using gspread to access column 3 on "supporting" Google Sheet
-    gordon_column.remove("gordon")
+    gordon_column.remove("gordon")  # custom code
     # Remove the column heading string "gordon" so column can be sum totalled
     for i in range(0, len(gordon_column)):
         gordon_column[i] = int(gordon_column[i])
-    f = sum(gordon_column)
+        # For loop to iterating through strings and convert to integers
+    f = sum(gordon_column)  # custom code
 
     # "production" worksheet
 
@@ -282,31 +294,33 @@ def get_average_rating():
     # Using gspread to access "production" Google Sheet
     visuals_column = production_sheet.col_values(1)
     # Using gspread to access column 1 on "production" Google Sheet
-    visuals_column.remove("visuals")
+    visuals_column.remove("visuals")  # custom code
     # Remove the column heading string "visuals" so column can be sum totalled
     for i in range(0, len(visuals_column)):
         visuals_column[i] = int(visuals_column[i])
-    g = sum(visuals_column)
+        # For loop to iterating through strings and convert to integers
+    g = sum(visuals_column)  # custom code
 
     costumes_column = production_sheet.col_values(2)
     # Using gspread to access column 2 on "production" Google Sheet
-    costumes_column.remove("costumes")
+    costumes_column.remove("costumes")  # custom code
     # Remove the column heading string "costumes" so column can be sum totalled
     for i in range(0, len(costumes_column)):
         costumes_column[i] = int(costumes_column[i])
-    h = sum(costumes_column)
+        # For loop to iterating through strings and convert to integers
+    h = sum(costumes_column)  # custom code
 
     music_column = production_sheet.col_values(3)
     # Using gspread to access column 3 on "production" Google Sheet
-    music_column.remove("music")
+    music_column.remove("music")  # custom code
     # Remove the column heading string "music" so column can be sum totalled
     for i in range(0, len(music_column)):
         music_column[i] = int(music_column[i])
-    # print(sum(music_column))
-    i = sum(music_column)
-    # print(i)
+        # For loop to iterating through strings and convert to integers
+    i = sum(music_column)  # custom code
 
-    all_ratings = (a+b+c+d+e+f+g+h+i) / len(batman_column)
+    all_ratings = (a+b+c+d+e+f+g+h+i) / len(batman_column)  # custom code
+    # Add summed lists of integers into variable. Get average rating of users
     print(f"The Batman has an average rating of {int(all_ratings)}%.")
     print("This rating is an average of all valid surveys received.")
 
@@ -333,5 +347,5 @@ def main():
 
 # Welcome message at start of program
 print("Welcome to Rate The Batman!\n")
-# calling main function to run all program functions
+# Calling main function to run all program functions. Credit Love Sandwiches
 main()
