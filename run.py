@@ -19,22 +19,28 @@ def start_survey():
     """
     initial yes/no question to start the survey
     """
-    print("Have you seen The Batman?\n")
-    question = input("Please answer 'Yes' or 'No'? \n")
-    if question == ("Yes"):
-        print("Great, we'd love to hear your feedback in this short survey.")
-        proceed = input("Do you wish to do this survey?\n")
-        if proceed == ("Yes"):
-            print("Great! Let's get started!\n")
-        elif proceed == ("No"):
-            print("No problem, have a nice day!")
-        else:
-            print("Please answer 'Yes' or 'No'.\n")
-    elif question == ("No"):
-        print("Sorry, this survey is only for people who have seen it.")
-        print("Please try this survey again after you watch The Batman.\n")
-    else:
-        print("Please answer 'Yes' or 'No'.")
+    while True:
+        print("Have you seen The Batman?\n")
+        question = input("Please answer 'Yes' or 'No'? \n")
+        if question == ("Yes"):
+            print("Great, we'd love your feedback in this short survey.")
+            proceed = input("Do you wish to do this survey?\n")
+            if proceed == ("Yes"):
+                print("Great! Let's get started!\n")
+                break
+            elif proceed == ("No"):
+                print("No problem, have a nice day!")
+                break
+            else:
+                print("Please answer 'Yes' or 'No'.\n")
+        elif question == ("No"):
+            print("Sorry, this survey is only for people who have seen it.")
+            print("Please try this survey again after you watch The Batman.\n")
+            break
+
+
+def end_program():
+    print("If you change your mind we'd love to hear your feedback.")
 
 
 def get_sales_data():
@@ -160,8 +166,8 @@ def get_average_rating():
     gets sum of each column on each worksheet for average score
     calculation
     """
-    main_average = SHEET.worksheet("sales")
-    batman_column = main_average.col_values(1)
+    main_sheet = SHEET.worksheet("sales")
+    batman_column = main_sheet.col_values(1)
     batman_column.remove("batman")
     for i in range(0, len(batman_column)):
         batman_column[i] = int(batman_column[i])
@@ -242,7 +248,7 @@ def main():
 
 
 print("Welcome to Rate The Batman!\n")
-start_survey()
+# start_survey()
 main()
 
 get_average_rating()
