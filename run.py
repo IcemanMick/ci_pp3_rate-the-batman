@@ -219,12 +219,12 @@ def get_average_rating():
     """
     Gets sum of each of the three columns on each worksheet for average score
     calculation.
-    Credit to "stack overflow" for code for for loop iterating through a list
+    Credit to GeeksforGeeks for code for for loop iterating through a list
     and converting string numbers to integers on lines 233 & 234, 242 & 243,
     252 & 253, 265 & 266, 274 & 275, 283 & 284, 296 & 297, 305 & 306, and 314 &
     315.
     Full credit given in README.md.
-    Other code credit to Love Sandwiches by Code Institute and custome code.
+    Other code credit to Love Sandwiches by Code Institute and custom code.
     """
     # "main" worksheet
 
@@ -327,7 +327,9 @@ def get_average_rating():
 
 def main():
     """
-    Run all functions
+    Run all functions for survey.
+    Lines 328 to 342 credit code structure to Love Sandwiches by Code
+    Institute. Code content is mix of custom and Code Institute.
     """
     data = get_main_ratings()
     main_data = [int(num) for num in data]
@@ -340,9 +342,12 @@ def main():
     update_worksheet(production_data, "production")
     new_total_data = calculate_total_rating(main_data)
     print(f"You scored The Batman {new_total_data} out of 90.")
-    percentage_rating = (new_total_data / 90) * 100
+    # Print total score of user and rate out of total score available (90)
+    percentage_rating = (new_total_data / 90) * 100  # custom code
+    # Convert users score to a percentage
     print(f"Your rating of The Batman is {int(percentage_rating)}%.")
-    get_average_rating()
+    # Print users percentage score and convert to an integer
+    get_average_rating()  # Credit to Love Sandwiches by Code Institute
 
 
 # Welcome message at start of program
