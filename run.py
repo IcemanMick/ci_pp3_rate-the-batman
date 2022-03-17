@@ -133,6 +133,35 @@ def calculate_surplus_data(sales_row):
     return total_score
 
 
+def get_average_rating():
+    """
+    gets sum of each column on each worksheet for average score
+    calculation
+    """
+    main_average = SHEET.worksheet("sales")
+    batman_column = main_average.col_values(1)
+    batman_column.remove("batman")
+    for i in range(0, len(batman_column)):
+        batman_column[i] = int(batman_column[i])
+    print(sum(batman_column))
+
+    # dont forget to return each
+
+    # print(str(batman_column))
+
+    catwoman_column = main_average.col_values(2)
+    catwoman_column.remove("catwoman")
+    for i in range(0, len(catwoman_column)):
+        catwoman_column[i] = int(catwoman_column[i])
+    print(sum(catwoman_column))
+
+    riddler_column = main_average.col_values(3)
+    riddler_column.remove("the riddler")
+    for i in range(0, len(riddler_column)):
+        riddler_column[i] = int(riddler_column[i])
+    print(sum(riddler_column))
+
+
 def main():
     """
     Run all functions
@@ -151,4 +180,6 @@ def main():
 
 
 print("Welcome to Rate The Batman!\n")
-main()
+# main()
+
+get_average_rating()
