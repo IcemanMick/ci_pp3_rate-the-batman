@@ -131,7 +131,7 @@ def get_production_ratings():
     return production_data
 
 
-def calculate_total_rating(sales_row):
+def calculate_total_rating(main_row):
     """
     calculating total score given by user
     """
@@ -140,7 +140,7 @@ def calculate_total_rating(sales_row):
     supporting_row = supporting[-1]
 
     surplus_data = []
-    for supporting, sales in zip(supporting_row, sales_row):
+    for supporting, sales in zip(supporting_row, main_row):
         surplus = int(supporting) + sales
         surplus_data.append(surplus)
 
@@ -189,22 +189,20 @@ def get_average_rating():
         riddler_column[i] = int(riddler_column[i])
     print(sum(riddler_column))
 
-    support_average = SHEET.worksheet("supporting")
-    alfred_column = support_average.col_values(1)
+    support_sheet = SHEET.worksheet("supporting")
+    alfred_column = support_sheet.col_values(1)
     alfred_column.remove("alfred")
     for i in range(0, len(alfred_column)):
         alfred_column[i] = int(alfred_column[i])
     print(sum(alfred_column))
 
-    support_average = SHEET.worksheet("supporting")
-    penguin_column = support_average.col_values(2)
+    penguin_column = support_sheet.col_values(2)
     penguin_column.remove("penguin")
     for i in range(0, len(penguin_column)):
         penguin_column[i] = int(penguin_column[i])
     print(sum(penguin_column))
 
-    support_average = SHEET.worksheet("supporting")
-    gordon_column = support_average.col_values(3)
+    gordon_column = support_sheet.col_values(3)
     gordon_column.remove("jim gordon")
     for i in range(0, len(gordon_column)):
         gordon_column[i] = int(gordon_column[i])
