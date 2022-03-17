@@ -267,10 +267,11 @@ def main():
     print(f"You score The Batman {new_total_data} out of 90")
     percentage_rating = (new_total_data / 90) * 100
     print(f"Your percentage rating of The Batman is {int(percentage_rating)}%")
+    get_average_rating()
 
 
 print("Welcome to Rate The Batman!\n")
 # start_survey()
 main()
 
-get_average_rating()
+# get_average_rating()
