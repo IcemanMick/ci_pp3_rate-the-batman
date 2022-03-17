@@ -104,7 +104,11 @@ def update_worksheet(data, worksheet):
 
 def get_supporting_ratings():
     """
-    rating supporting characters
+    Get ratings of supporting characters from the user.
+    If incorrect ratings are entered, a while loop prompts the user
+    to try again until valid ratings are entered.
+    Lines 105 to 125 credit code structure to Love Sandwiches by
+    Code Instititue. Code content is mix of custom and Code Institute.
     """
     print("\nPlease rate the supporting characters here:")
     while True:  # starts while loop.
@@ -123,16 +127,23 @@ def get_supporting_ratings():
 
 def get_production_ratings():
     """
-    rating production value of movie
+    Get ratings of production values from the user.
+    If incorrect ratings are entered, a while loop prompts the user
+    to try again until valid ratings are entered.
+    Lines 128 to 148 credit code structure to Love Sandwiches by
+    Code Instititue. Code content is mix of custom and Code Institute.
     """
     print("\nPlease rate the production values here:")
-    while True:
+    while True:  # starts while loop.
         rating_str = input("A)Costumes,B)Visuals,C)Music: \n")
+        # creates question and input space for user answers
 
         production_data = rating_str.split(",")
+        # splits string into list
 
         if validate_data(production_data):
             break
+         # if true end loop with break
 
     return production_data
 
