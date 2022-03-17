@@ -182,6 +182,28 @@ def get_average_rating():
         gordon_column[i] = int(gordon_column[i])
     print(sum(gordon_column))
 
+    production_average = SHEET.worksheet("production")
+    visuals_column = production_average.col_values(1)
+    visuals_column.remove("visuals")
+    for i in range(0, len(visuals_column)):
+        visuals_column[i] = int(visuals_column[i])
+    print(sum(visuals_column))
+
+    costumes_column = production_average.col_values(2)
+    costumes_column.remove("costumes")
+    for i in range(0, len(costumes_column)):
+        costumes_column[i] = int(costumes_column[i])
+    print(sum(costumes_column))
+
+    music_column = production_average.col_values(3)
+    music_column.remove("music")
+    for i in range(0, len(music_column)):
+        music_column[i] = int(music_column[i])
+    print(sum(music_column))
+
+
+
+
 
 def main():
     """
