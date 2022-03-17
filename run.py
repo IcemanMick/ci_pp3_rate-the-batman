@@ -1,17 +1,37 @@
-import gspread
-from google.oauth2.service_account import Credentials
+import gspread  # Import gspread library.
+# Credit to Love Sandwiches by Code Institute.
 
+from google.oauth2.service_account import Credentials
+# Accessing Credentials class only from Google-auth library.
+# Credit to Love Sandwiches by Code Institute.
 
 SCOPE = [
     "https://www.googleapis.com/auth/spreadsheets",
     "https://www.googleapis.com/auth/drive.file",
     "https://www.googleapis.com/auth/drive"
     ]
+"""
+Defining SCOPE lists the APIs here to access services
+of Google Sheets and Google Drive.
+Credit to Love Sandwiches by Code Institute.
+"""
+
 
 CREDS = Credentials.from_service_account_file('creds.json')
 SCOPED_CREDS = CREDS.with_scopes(SCOPE)
+"""
+Line 20 & 21: Calling the service_account file method of the
+Credentials class and passing it the creds.json file.
+Credit to  Love Sandwiches by Code Institute.
+"""
 GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
+# Credit to Love Sandwiches by Code Institute.
+
 SHEET = GSPREAD_CLIENT.open('rate_the_batman')
+"""
+Accessing rate_the_batman Google Sheet.
+Credit to Love Sandwiches by Code Institute.
+"""
 
 
 def get_main_ratings():
@@ -19,18 +39,23 @@ def get_main_ratings():
     Get ratings of main characters from the user.
     If incorrect ratings are entered, a while loop prompts the user
     to try again until valid ratings are entered.
+    Lines 37 to 60 credit code structure to Love Sandwiches by
+    Code Instititue. Code content is custom.
     """
     print("Please rate each question between 1 (lowest) to 10 (highest).")
     print("Ratings should be 3 numbers only for A,B,C, separated by commas.")
     print("Example: 10,9,7\n")
     print("Please rate the main characters here:")
-    while True:
+    # lines 45 to 48 are instructions for user at top of survey.
+    while True:  # starts while loop
         rating_str = input("A)Batman,B)Catwoman,C)The Riddler: \n")
+        # create question and input for user answers
 
         main_data = rating_str.split(",")
+        # splits string into list
 
-        if validate_data(main_data):
-            break
+        if validate_data(main_data):  # calls function in if loop
+            break # if true end loop
 
     return main_data
 
