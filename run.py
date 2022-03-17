@@ -24,8 +24,9 @@ def get_main_ratings():
     print("Please rate each question between 1 (lowest) to 10 (highest).")
     print("Ratings should be 3 numbers only for A,B,C, separated by commas.")
     print("Example: 10,9,7\n")
+    print("Please rate the main characters here:")
     while True:
-        rating_str = input(" Rate: A)Batman,B)Catwoman,C)The Riddler: \n")
+        rating_str = input("Rate: A)Batman,B)Catwoman,C)The Riddler: \n")
 
         main_data = rating_str.split(",")
 
@@ -62,14 +63,14 @@ def update_worksheet(data, worksheet):
     """
     worksheet_to_update = SHEET.worksheet(worksheet)
     worksheet_to_update.append_row(data)
-    print(f"{worksheet} worksheet updated successfully\n")
+    # print(f"{worksheet} worksheet updated successfully\n")
 
 
 def get_supporting_ratings():
     """
     rating supporting characters
     """
-    print("Please rate the supporting characters here:")
+    print("\nPlease rate the supporting characters here:")
     while True:
         rating_str = input("A)Alfred,B)Penguin,C)Jim Gordon: \n")
 
@@ -85,7 +86,7 @@ def get_production_ratings():
     """
     rating production value of movie
     """
-    print("Please rate the production values here:")
+    print("\nPlease rate the production values here:")
     while True:
         rating_str = input("A)Costumes,B)Visuals,C)Music: \n")
 
@@ -101,7 +102,6 @@ def calculate_total_rating(main_row):
     """
     calculating total score given by user
     """
-    print("Calculating your total movie rating...\n")
     supporting = SHEET.worksheet("supporting").get_all_values()
     supporting_row = supporting[-1]
 
@@ -112,7 +112,7 @@ def calculate_total_rating(main_row):
 
     # return surplus_data
 
-    print("Calculating total your total rating for The Batman")
+    print("Calculating your total rating for The Batman...\n")
     production = SHEET.worksheet("production").get_all_values()
     production_row = production[-1]
 
@@ -196,7 +196,7 @@ def get_average_rating():
     # print(i)
 
     all_ratings = (a+b+c+d+e+f+g+h+i) / len(batman_column)
-    print(f"The Batman has an average {int(all_ratings)}% rating.")
+    print(f"The Batman has an average rating of {int(all_ratings)}%.")
     print("This score is an average of all valid surveys received.")
 
 
@@ -214,13 +214,11 @@ def main():
     production_data = [int(num) for num in data]
     update_worksheet(production_data, "production")
     new_total_data = calculate_total_rating(main_data)
-    print(f"You score The Batman {new_total_data} out of 90")
+    print(f"You scored The Batman {new_total_data} out of 90.")
     percentage_rating = (new_total_data / 90) * 100
-    print(f"Your percentage rating of The Batman is {int(percentage_rating)}%")
+    print(f"Your rating of The Batman is {int(percentage_rating)}%.")
     get_average_rating()
 
 
 print("Welcome to Rate The Batman!\n")
 main()
-
-# get_average_rating()
