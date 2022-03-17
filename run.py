@@ -15,6 +15,28 @@ GSPREAD_CLIENT = gspread.authorize(SCOPED_CREDS)
 SHEET = GSPREAD_CLIENT.open('rate_the_batman')
 
 
+def start_survey():
+    """
+    initial yes/no question to start the survey
+    """
+    print("Have you seen The Batman?\n")
+    question = input("Please answer 'Yes' or 'No'? \n")
+    if question == ("Yes"):
+        print("Great, we'd love to hear your feedback in this short survey.")
+        proceed = input("Do you wish to do this survey?\n")
+        if proceed == ("Yes"):
+            print("Great! Let's get started!\n")
+        elif proceed == ("No"):
+            print("No problem, have a nice day!")
+        else:
+            print("Please answer 'Yes' or 'No'.\n")
+    elif question == ("No"):
+        print("Sorry, this survey is only for people who have seen it.")
+        print("Please try this survey again after you watch The Batman.\n")
+    else:
+        print("Please answer 'Yes' or 'No'.")
+
+
 def get_sales_data():
     """
     Get ratings of main characters from the user.
@@ -220,6 +242,7 @@ def main():
 
 
 print("Welcome to Rate The Batman!\n")
+start_survey()
 main()
 
 get_average_rating()
