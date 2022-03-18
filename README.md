@@ -134,11 +134,11 @@ The objectives of the site owners are:
 
 ### Data Collection
 - All ratings entered by user are recorded to corresponding Google Sheets:
-    - "main" for main characters ratings
-    <img src= "./assets/docs/features/008_main.PNG">
-    - "supporting" for supporting characters ratings
-    <img src= "./assets/docs/features/009_supporting.PNG">
-    - "production" for production quality ratings
+- "main" for main characters ratings
+<img src= "./assets/docs/features/008_main.PNG">
+- "supporting" for supporting characters ratings
+<img src= "./assets/docs/features/009_supporting.PNG">
+- "production" for production quality ratings
 <img src= "./assets/docs/features/010_production.PNG">
 - All sheets are given 10 rows of dummy survey ratings to simulate previous users and allow average ratings to be calculated better.
 - User stories satisfied: Number 8, 9
