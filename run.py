@@ -127,13 +127,13 @@ def get_supporting_ratings():
 
 def get_production_ratings():
     """
-    Get ratings of production values from the user.
+    Get ratings of production quality from the user.
     If incorrect ratings are entered, a while loop prompts the user
     to try again until valid ratings are entered.
     Lines 128 to 148 credit code structure to Love Sandwiches by
     Code Instititue. Code content is mix of custom and Code Institute.
     """
-    print("\nPlease rate the production values here:")
+    print("\nPlease rate the production quality here:")
     while True:  # Starts while loop.
         rating_str = input("A)Costumes,B)Visuals,C)Music: \n")
         # Creates question and input space for user answers
