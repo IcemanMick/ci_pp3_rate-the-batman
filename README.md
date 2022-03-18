@@ -3,7 +3,7 @@
 ![Am I Responsive Image]
 
 [Live Webpage]
-[Google Sheet]
+[rate_the_batman Google Sheet](https://docs.google.com/spreadsheets/d/1azKXLCj6tX55RtOfXPEx_gYg3LoZbx-21pN5ugrU2wc/edit#gid=419322650)
 
 ## Table of Contents
 
@@ -26,6 +26,7 @@
 8. [Deployment](#deployment)
 9. [Technology Used](#technology-used)
 10. [Credits](#credits)
+    1. [Content](#content)
 11. [Final Thoughts](#final-thoughts)
 
 ## Introduction
@@ -83,3 +84,36 @@ The objectives of the site owners are:
 8. As a site owner, I want to collect and view ratings about the production quality.
 9. As a site owner, I want to know what an individual rating of The Batman is.
 10. As a site owner, I want to know what the average rating of The Batman is.
+
+## Planning
+
+## Feautures
+
+### Existing Features
+
+### Future Features
+
+## Testing
+
+### Python Validator
+
+The Python of the website was passed through the [PEP8 Online Checker](http://pep8online.com/).The page returned no errors.
+
+<details><summary>PEP Online Checker Results</summary><img src ="./assets/docs/validation/001_pep8.PNG"></details>
+
+### Browsers
+The survey webpage was tested on the following browsers:
+- Google Chrome
+
+### Devices
+The survey website was tested ont the following devices:
+- Lenovo Z50
+- One Plus 7 mobile phone
+
+## Unfixed Bugs
+
+## Deployment
+
+## Technlogy Used
+
+## Credits
