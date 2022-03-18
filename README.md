@@ -21,6 +21,7 @@
     1. [Python Validator](#python-validator)
     2. [Browsers](#browsers)
     3. [Devices](#devices)
+    4. [Terminals](#terminals)
 7. [Bugs](#bugs)
     1. [Unfixed Bugs](#unfixed-bugs)
 8. [Deployment](#deployment)
@@ -102,18 +103,46 @@ The Python of the website was passed through the [PEP8 Online Checker](http://pe
 <details><summary>PEP Online Checker Results</summary><img src ="./assets/docs/validation/001_pep8.PNG"></details>
 
 ### Browsers
+
 The survey webpage was tested on the following browsers:
 - Google Chrome
 
 ### Devices
+
 The survey website was tested ont the following devices:
 - Lenovo Z50
 - One Plus 7 mobile phone
+
+### Terminals
+
+- Tested on local Gitpod Terminal.
+- Tested on Code Institute's Heroku Terminal.
 
 ## Unfixed Bugs
 
 ## Deployment
 
+This project was deployed using 
+
 ## Technlogy Used
 
+- Github
+- Gitpod
+- Git
+- Google Chrome
+- Google Cloud Platform
+- Google Drive
+- Google Sheets
+- Snipping Tool
+- Heroku
+- Internet Explorer
+
 ## Credits
+
+### Content
+
+- [Love Sandwiches](https://learn.codeinstitute.net/courses/course-v1:CodeInstitute+LS101+2021_T1/courseware/293ee9d8ff3542d3b877137ed81b9a5b/58d3e90f9a2043908c62f31e51c15deb/) where credited in the run.py file by the [Code Institute](https://codeinstitute.net/ie/)
+- How do I add together integers in a list in Python? by [Stack Overflow](https://stackoverflow.com/questions/13909052/how-do-i-add-together-integers-in-a-list-in-python)
+- Converting all strings inlist to integers by [GeeksforGeeks](https://www.geeksforgeeks.org/python-converting-all-strings-in-list-to-integers/)
+
+## Final Thoughts
