@@ -124,7 +124,21 @@ The survey website was tested ont the following devices:
 
 ## Deployment
 
-This project was deployed using 
+This project was deployed using Code Institute's custom built mock terminal for Heroku.
+
+Steps were:
+1. Type "pip2 freeze > requirements.txt" in Gitpod terminal.
+2. Git commit and push the changes to requirements.txt file to Github
+3. Create a new Heroku app and once created go to Settings Tab first.
+4. Scroll down and click "Reveal Config Vars".
+5. In the field for KEY type "CREDS" and then copy from workspace on Gitpod the entire creds.JSON file and paste into VALUE field on Heroku settings and click Add.
+6. Scroll down and click "Add Buildpack" and choose Python. Add another buildpack called Node.JS and save both in that order.
+7. Add another Config Vars. The key is PORT and the value is 8000.
+8. Scroll up to the Deploy Tab.
+9. Choose Github as Deployment Method and confirm.
+10. Search for your repository by its name on and click Connect.
+11. Scroll down and choose Deploy manually clicking Deploy Branch.
+12. Wait for "Your app was succesfully deployed" message and click View.
 
 ## Technlogy Used
 
