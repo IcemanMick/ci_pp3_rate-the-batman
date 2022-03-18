@@ -48,7 +48,7 @@ def get_main_ratings():
     print("Please rate the main characters here:")
     # Lines 45 to 48 are instructions for user at top of survey.
     while True:  # Starts while loop.
-        rating_str = input("A)Batman,B)Catwoman,C)The Riddler: \n")
+        rating_str = input("A)Batman,B)Catwoman,C)The Riddler:\n")
         # creates question and input space for user answers
 
         main_data = rating_str.split(",")
@@ -112,7 +112,7 @@ def get_supporting_ratings():
     """
     print("\nPlease rate the supporting characters here:")
     while True:  # Starts while loop.
-        rating_str = input("A)Alfred,B)Penguin,C)Jim Gordon: \n")
+        rating_str = input("A)Alfred,B)Penguin,C)Jim Gordon:\n")
         # Creates question and input space for user answers
 
         supporting_data = rating_str.split(",")
@@ -135,7 +135,7 @@ def get_production_ratings():
     """
     print("\nPlease rate the production quality here:")
     while True:  # Starts while loop.
-        rating_str = input("A)Costumes,B)Visuals,C)Music: \n")
+        rating_str = input("A)Costumes,B)Visuals,C)Music:\n")
         # Creates question and input space for user answers
 
         production_data = rating_str.split(",")

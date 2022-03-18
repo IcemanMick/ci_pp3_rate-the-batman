@@ -119,6 +119,8 @@ The survey website was tested ont the following devices:
 - Tested on Code Institute's Heroku Terminal.
 
 ## Unfixed Bugs
+- Terminal accepts negative numbers (e.g. -1) as valid data
+- Terminal accepts positive numbers larger than 10 as valid data.
 
 ## Deployment
 
