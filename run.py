@@ -39,7 +39,7 @@ def get_main_ratings():
     Get ratings of main characters from the user.
     If incorrect ratings are entered, a while loop prompts the user
     to try again until valid ratings are entered.
-    Lines 37 to 60 credit code structure to Love Sandwiches by
+    Lines 37 to 61 credit code structure to Love Sandwiches by
     Code Instititue. Code content is mix of custom and Code Institute.
     """
     print("Please rate each question between 1 (lowest) to 10 (highest).")
@@ -332,7 +332,7 @@ def get_average_rating():
 def main():
     """
     Run all functions for survey.
-    Lines 328 to 342 credit code structure to Love Sandwiches by Code
+    Lines 332 to 347 credit code structure to Love Sandwiches by Code
     Institute. Code content is mix of custom and Code Institute.
     """
     data = get_main_ratings()
